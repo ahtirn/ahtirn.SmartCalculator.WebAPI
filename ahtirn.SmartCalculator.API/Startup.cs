@@ -62,4 +62,8 @@ namespace ahtirn.SmartCalculator.API
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
+    // class MyMiddleware
+    // {
+    //     
+    // }
 }
