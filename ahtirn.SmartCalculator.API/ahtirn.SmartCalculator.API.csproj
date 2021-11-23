@@ -9,7 +9,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ahtirn.Application\ahtirn.Application.csproj" />
+      <ProjectReference Include="..\ahtirn.BusinessLogic\ahtirn.BusinessLogic.csproj" />
+      <ProjectReference Include="..\ahtirn.DataAccess\ahtirn.DataAccess.csproj" />
       <ProjectReference Include="..\ahtirn.Domain\ahtirn.Domain.csproj" />
     </ItemGroup>
 

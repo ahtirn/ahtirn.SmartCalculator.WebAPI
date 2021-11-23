@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ahtirn.Domain.Interfaces;
 using ahtirn.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using ahtirn.DataAccess;
+
+// Временно без DI
+using ahtirn.BusinessLogic.Services;
 
 namespace ahtirn.SmartCalculator.API.Controllers
 {
@@ -10,6 +15,16 @@ namespace ahtirn.SmartCalculator.API.Controllers
     [Microsoft.AspNetCore.Components.Route("[controller]")]
     public class UserController : ControllerBase
     {
+        private readonly IUsersService _usersService;
+
+        public UserController()
+        {
+            IUsersRepository usersRepository = new UsersRepository();
+            
+            //TODO: Временно без DI
+            _usersService = new UsersService(usersRepository);
+        }
+        
         [HttpGet("RandomUser")]
         public IEnumerable<User> GetUsers()
         {
@@ -25,12 +40,25 @@ namespace ahtirn.SmartCalculator.API.Controllers
             return user;
         }
 
-        [HttpPost("[action]")] // PlaceHolder 
+        [HttpGet]
+        public IUsersService Get(IUsersService user)
+        {
+            return user;
+        }
+
+        [HttpPost]
+        public IUsersService Create(IUsersService user)
+        {
+            return user;
+        }
+
+        [HttpPost("LogUser")] // PlaceHolder 
         public IActionResult PostUsers([FromBody]User user)
         {
             return Ok("Че то вернул");
         }
 
+        #region TestReflex
         // [HttpGet("GetValidCheck")]
         // public void PostValidUser([FromQuery]User user)
         // {
@@ -63,5 +91,6 @@ namespace ahtirn.SmartCalculator.API.Controllers
         //         // }
         //     }
         // }
+        #endregion
     }
 }

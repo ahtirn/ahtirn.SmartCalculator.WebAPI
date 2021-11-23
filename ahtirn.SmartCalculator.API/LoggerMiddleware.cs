@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using ahtirn.Application.Services;
+using ahtirn.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 
+//Временно без DI
+using ahtirn.BusinessLogic.Services;
 
 namespace ahtirn.SmartCalculator.API
 {
@@ -14,6 +16,7 @@ namespace ahtirn.SmartCalculator.API
         public LoggerMiddleware(RequestDelegate next)
         {
             _next = next;
+            //TODO: Временно без DI
             _logService = new LoggerService();
         }
 

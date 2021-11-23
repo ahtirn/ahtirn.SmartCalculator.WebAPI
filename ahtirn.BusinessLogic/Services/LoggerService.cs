@@ -2,9 +2,10 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using ahtirn.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 
-namespace ahtirn.Application.Services
+namespace ahtirn.BusinessLogic.Services
 {
     public class LoggerService : ILogService
     {
@@ -13,7 +14,7 @@ namespace ahtirn.Application.Services
         #region ctor
         public LoggerService()
         {
-            _pathLogFile = @"C:\Users\User\Desktop\proect\ahtirn.SmartCalculator\ahtirn.SmartCalculator.WebAP\ahtirn.LogFiles\log_file.log";
+            _pathLogFile = @"C:\Users\User\Desktop\proect\ahtirn.SmartCalculator\ahtirn.SmartCalculator.WebAP\LogFiles\log_file.log";
         }
 
         public LoggerService(string path)
