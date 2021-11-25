@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.BusinessLogic", "aht
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.DataAccess", "ahtirn.DataAccess\ahtirn.DataAccess.csproj", "{B6B87751-5B30-405A-92C6-2833B46598A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.Domain", "ahtirn.Domain\ahtirn.Domain.csproj", "{5F491F03-703E-4803-9E1A-7F7C3589B43D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.Core", "ahtirn.Core\ahtirn.Core.csproj", "{5F491F03-703E-4803-9E1A-7F7C3589B43D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

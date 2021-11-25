@@ -1,23 +1,23 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
-using ahtirn.Domain.Interfaces;
 using Microsoft.AspNetCore.Builder;
 
 //Временно без DI
 using ahtirn.BusinessLogic.Services;
+using ahtirn.Core.Interfaces;
 
 namespace ahtirn.SmartCalculator.API
 {
-    class LoggerMiddleware
+    class LoggerUsersMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly ILogService _logService;
 
-        public LoggerMiddleware(RequestDelegate next)
+        public LoggerUsersMiddleware(RequestDelegate next)
         {
             _next = next;
             //TODO: Временно без DI
-            _logService = new LoggerService();
+            _logService = new LoggerUsersService();
         }
 
         public async Task Invoke(HttpContext context)
@@ -31,7 +31,7 @@ namespace ahtirn.SmartCalculator.API
     {
         public static IApplicationBuilder UseLoggerMiddleware(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<LoggerMiddleware>();
+            return builder.UseMiddleware<LoggerUsersMiddleware>();
         }
     }
 }

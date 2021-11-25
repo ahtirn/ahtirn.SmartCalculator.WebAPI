@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using ahtirn.BusinessLogic.Services;
+using ahtirn.Core.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
 namespace ahtirn.SmartCalculator.API
@@ -31,6 +27,8 @@ namespace ahtirn.SmartCalculator.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ahtirn.SmartCalculator.API", Version = "v1" });
             });
+            // services.AddTransient<IUsersService, UsersService>();
+            services.AddScoped<ILogService, LoggerUsersServiceNew>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,18 +44,17 @@ namespace ahtirn.SmartCalculator.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            // Enables reading the request body multiple times.  
-            app.Use((context, next) =>
-            {
-                context.Request.EnableBuffering();
-                return next.Invoke();
-            });
             
-            // Logs input data from the controller into a "log_file.log".
-            app.UseLoggerMiddleware();
-
             app.UseAuthorization();
+            
+            // // Enables reading the request body multiple times.  
+            // app.Use((context, next) =>
+            // {
+            //     context.Request.EnableBuffering();
+            //     return next.Invoke();
+            // });
+            // // Logs input data from the controller into a "log_file.log".
+            // app.UseLoggerMiddleware();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

@@ -2,22 +2,22 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using ahtirn.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
+using ahtirn.Core.Interfaces;
 
 namespace ahtirn.BusinessLogic.Services
 {
-    public class LoggerService : ILogService
+    public class LoggerUsersService : ILogService
     {
         private readonly string _pathLogFile;
 
         #region ctor
-        public LoggerService()
+        public LoggerUsersService()
         {
-            _pathLogFile = @"C:\Users\User\Desktop\proect\ahtirn.SmartCalculator\ahtirn.SmartCalculator.WebAP\LogFiles\log_file.log";
+            _pathLogFile = @"C:\Users\User\Desktop\proect\ahtirn.SmartCalculator\ahtirn.SmartCalculator.WebAP\LogFiles\LogUsers\log_file.log";
         }
 
-        public LoggerService(string path)
+        public LoggerUsersService(string path)
         {
             _pathLogFile = path;
         }
@@ -42,7 +42,7 @@ namespace ahtirn.BusinessLogic.Services
         private async Task<string> GetBodyAsync(HttpRequest request)
         {
             string body = string.Empty;
-
+            
             if (request.ContentLength > 0 && request.Body.CanRead)
             {
                 await using (var outputStream = new MemoryStream())
@@ -56,6 +56,7 @@ namespace ahtirn.BusinessLogic.Services
                 // Перемотка назад, чтобы ядро не потерялось при поиске тела запроса
                 request.Body.Position = 0;
             }
+
             return body;
         }
     }

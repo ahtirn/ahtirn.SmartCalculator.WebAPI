@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace ahtirn.Domain.Interfaces
+namespace ahtirn.Core.Interfaces
 {
     public interface ILogService
     {

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
-namespace ahtirn.Domain.Models
+namespace ahtirn.Core.Models
 {
     public class User
     {
@@ -12,7 +13,7 @@ namespace ahtirn.Domain.Models
         /// <summary>
         /// <param name="Weight">Вес</param>
         /// </summary>
-        public short Weight { get; set; }
+        public float Weight { get; set; }
 
         /// <summary>
         ///<param name="Height">Рост</param>
@@ -22,6 +23,7 @@ namespace ahtirn.Domain.Models
         /// <summary>
         /// <param name="Gender">Пол</param>
         /// </summary>
+        [Required]
         public Gender Gender { get; set; }
     }
     

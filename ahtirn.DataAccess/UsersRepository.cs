@@ -1,4 +1,5 @@
-﻿using ahtirn.Domain.Interfaces;
+﻿using System;
+using ahtirn.Core.Interfaces;
 
 namespace ahtirn.DataAccess
 {
@@ -7,14 +8,31 @@ namespace ahtirn.DataAccess
     /// </summary>
     public class UsersRepository : IUsersRepository
     {
-        public object[] Get()
+        public Core.Models.User[] Get()
         {
-            throw new System.NotImplementedException();
+            // Mapping
+            var user = new User
+            {
+                Id = 1,
+                DateTime = DateTime.Now,
+                Age = 21,
+                Weight = 64,
+                Height = 174
+            };
+
+            return new[]
+            {
+                new Core.Models.User
+                {
+                    Age = user.Age,
+                    Weight = user.Weight,
+                    Height = user.Height
+                }
+            };
         }
 
-        public void Create(object user)
+        public void Create(Core.Models.User user)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
