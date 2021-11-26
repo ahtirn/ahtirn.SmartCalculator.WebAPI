@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
-using ahtirn.Core.Interfaces;
+using ahtirn.Domain.Interfaces;
 using Microsoft.AspNetCore.Http;
 
 namespace ahtirn.BusinessLogic.Services
@@ -9,23 +11,65 @@ namespace ahtirn.BusinessLogic.Services
     public class LoggerUsersServiceNew : ILogService
     {
         private readonly string _pathLogFile;
+        
         public LoggerUsersServiceNew()
         {
+            // _request = request;
             _pathLogFile = @"C:\Users\User\Desktop\proect\ahtirn.SmartCalculator\ahtirn.SmartCalculator.WebAP\LogFiles\LogUsers\log_file.log";
         }
-        public Task LogAsync(HttpRequest request)
+
+        public async Task LogAsync(HttpRequest _request)
         {
             try
             {
-                if (request != null)
+                if (_request != null)
                 {
-                    await File.AppendAllTextAsync(_pathLogFile, await );
+                    await File.AppendAllTextAsync(_pathLogFile, await LogEditBody(_request));
                 }
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.StatusCode);
             }
+        }
+
+        private async Task<string> LogEditBody(HttpRequest _request)
+        {
+            var body = await GetBodyAsync(_request);
+            if (!string.IsNullOrWhiteSpace(body))
+            {
+                var info = $"{DateTime.Now.ToLongTimeString()} " +
+                           $"\n{_request.HttpContext.Request.Path} " +
+                           $"\n{_request.HttpContext.Request.Host}";
+                           
+                return info + body;
+            }
+            return body;
+        }
+        
+        private async Task<string> GetBodyAsync(HttpRequest _request)
+        {
+            string body = string.Empty;
+             
+            if (_request.ContentLength > 0 && _request.Body.CanRead)
+            {
+                // Enables reading the request body multiple times.  
+                _request.EnableBuffering();
+                
+                await using (var outputStream = new MemoryStream())
+                {
+                    var inputStream = _request.Body;
+                    await inputStream.CopyToAsync(outputStream);
+                    outputStream.Position = 0;
+                     
+                    body = await new StreamReader(outputStream, Encoding.UTF8)
+                        .ReadToEndAsync();
+                }
+                // Перемотка назад, чтобы ядро не потерялось при поиске тела запроса
+                _request.Body.Position = 0;
+            }
+
+            return body;
         }
     }
 }

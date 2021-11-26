@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ahtirn.Core\ahtirn.Core.csproj" />
+      <ProjectReference Include="..\ahtirn.Domain\ahtirn.Domain.csproj" />
     </ItemGroup>
 
 </Project>

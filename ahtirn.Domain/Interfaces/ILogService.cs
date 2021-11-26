@@ -1,10 +1,11 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
-namespace ahtirn.Core.Interfaces
+namespace ahtirn.Domain.Interfaces
 {
     public interface ILogService
     {
         Task LogAsync(HttpRequest request);
+        // Task LogAsync();
     }
 }

@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ahtirn.BusinessLogic\ahtirn.BusinessLogic.csproj" />
+      <ProjectReference Include="..\ahtirn.Domain\ahtirn.Domain.csproj" />
     </ItemGroup>
 
 </Project>

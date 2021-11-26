@@ -1,18 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using ahtirn.Core.Interfaces;
-using ahtirn.Core.Models;
+using System.Threading.Tasks;
+using ahtirn.Domain.Interfaces;
+using ahtirn.Domain.Models;
 
 namespace ahtirn.BusinessLogic.Services
 {
     public class UsersService : IUsersService
     {
-        // private readonly IUsersRepository _usersRepository;
-        // public UsersService(IUsersRepository usersRepository)
-        // {
-        //     _usersRepository = usersRepository;
-        // }
-
         public User[] Get()
         {
             var rnd = new Random();
@@ -23,7 +19,8 @@ namespace ahtirn.BusinessLogic.Services
                     Weight = (float)rnd.NextDouble(),
                     Height = (short)rnd.Next(),
                     Gender = (Gender)rnd.Next(0, 2)
-                }).ToArray();
+                })
+                .ToArray();
         }
 
         public bool ValidationData(User user)

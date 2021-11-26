@@ -1,5 +1,5 @@
 ﻿using System;
-using ahtirn.Core.Interfaces;
+using ahtirn.Domain.Interfaces;
 
 namespace ahtirn.DataAccess
 {
@@ -8,7 +8,7 @@ namespace ahtirn.DataAccess
     /// </summary>
     public class UsersRepository : IUsersRepository
     {
-        public Core.Models.User[] Get()
+        public Domain.Models.User[] Get()
         {
             // Mapping
             var user = new User
@@ -22,7 +22,7 @@ namespace ahtirn.DataAccess
 
             return new[]
             {
-                new Core.Models.User
+                new Domain.Models.User
                 {
                     Age = user.Age,
                     Weight = user.Weight,
@@ -31,7 +31,7 @@ namespace ahtirn.DataAccess
             };
         }
 
-        public void Create(Core.Models.User user)
+        public void Create(Domain.Models.User user)
         {
         }
     }

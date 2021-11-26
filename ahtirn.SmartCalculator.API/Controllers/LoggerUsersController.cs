@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ahtirn.Domain.Interfaces;
+using ahtirn.Domain.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ahtirn.SmartCalculator.API.Controllers
 {
@@ -6,10 +8,18 @@ namespace ahtirn.SmartCalculator.API.Controllers
     [Route("[controller]")]
     public class LoggerUsersController : ControllerBase
     {
-        [HttpGet("LoggerNew")]
-        public IActionResult LoggerNew()
+        private readonly ILogService _logService;
+
+        public LoggerUsersController(ILogService logService)
         {
-            return Ok(Request);
+            _logService = logService;
+        }
+
+        [HttpPost("LoggerNew")]
+        public IActionResult LoggerNew([FromBody]User user)
+        {
+            // _logService.LogAsync();
+            return Ok("Чето получилось");
         }
     }
 }

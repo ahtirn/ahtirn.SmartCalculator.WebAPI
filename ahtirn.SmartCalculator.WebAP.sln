@@ -6,7 +6,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.BusinessLogic", "aht
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.DataAccess", "ahtirn.DataAccess\ahtirn.DataAccess.csproj", "{B6B87751-5B30-405A-92C6-2833B46598A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.Core", "ahtirn.Core\ahtirn.Core.csproj", "{5F491F03-703E-4803-9E1A-7F7C3589B43D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.Domain", "ahtirn.Domain\ahtirn.Domain.csproj", "{5F491F03-703E-4803-9E1A-7F7C3589B43D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.BusinessLogic.MsTests", "ahtirn.BusinessLogic.MsTests\ahtirn.BusinessLogic.MsTests.csproj", "{C2FE6335-6EDE-444E-81F9-B9FF1CD46CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.BusinessLogic.NTests", "ahtirn.BusinessLogic.NTests\ahtirn.BusinessLogic.NTests.csproj", "{1A1E6B46-CAFD-4A55-A4AF-C3AC61CED32B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ahtirn.BusinessLogic.XTests", "ahtirn.BusinessLogic.XTests\ahtirn.BusinessLogic.XTests.csproj", "{07BE19C3-0CAA-47DA-A755-BD3E7F6DC551}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +36,17 @@ Global
 		{5F491F03-703E-4803-9E1A-7F7C3589B43D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F491F03-703E-4803-9E1A-7F7C3589B43D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F491F03-703E-4803-9E1A-7F7C3589B43D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FE6335-6EDE-444E-81F9-B9FF1CD46CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FE6335-6EDE-444E-81F9-B9FF1CD46CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FE6335-6EDE-444E-81F9-B9FF1CD46CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FE6335-6EDE-444E-81F9-B9FF1CD46CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A1E6B46-CAFD-4A55-A4AF-C3AC61CED32B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1E6B46-CAFD-4A55-A4AF-C3AC61CED32B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1E6B46-CAFD-4A55-A4AF-C3AC61CED32B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1E6B46-CAFD-4A55-A4AF-C3AC61CED32B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07BE19C3-0CAA-47DA-A755-BD3E7F6DC551}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07BE19C3-0CAA-47DA-A755-BD3E7F6DC551}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07BE19C3-0CAA-47DA-A755-BD3E7F6DC551}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07BE19C3-0CAA-47DA-A755-BD3E7F6DC551}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

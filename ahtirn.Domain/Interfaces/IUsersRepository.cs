@@ -1,6 +1,6 @@
-﻿using ahtirn.Core.Models;
+﻿using ahtirn.Domain.Models;
 
-namespace ahtirn.Core.Interfaces
+namespace ahtirn.Domain.Interfaces
 {
     public interface IUsersRepository
     {

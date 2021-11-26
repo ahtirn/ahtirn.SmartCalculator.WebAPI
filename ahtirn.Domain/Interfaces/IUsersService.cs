@@ -1,6 +1,7 @@
-﻿using ahtirn.Core.Models;
+﻿using System.Collections.Generic;
+using ahtirn.Domain.Models;
 
-namespace ahtirn.Core.Interfaces
+namespace ahtirn.Domain.Interfaces
 {
     public interface IUsersService
     {

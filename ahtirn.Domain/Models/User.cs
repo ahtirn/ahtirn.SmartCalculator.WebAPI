@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace ahtirn.Core.Models
+namespace ahtirn.Domain.Models
 {
     public class User
     {
